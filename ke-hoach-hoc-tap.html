@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kế hoạch học tập cá nhân</title>
+<style>
+:root{--ink:#26324b;--muted:#68738a;--paper:#fff;--bg:#f3f5fb;--line:#e5e9f2;--purple:#7164d8;--blue:#4d8acb;--green:#4a9b7b;--orange:#e49a55}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.5}
+header{background:linear-gradient(125deg,#6258c9,#8a7ce6);color:white;padding:34px 20px 28px}
+.wrap{max-width:1050px;margin:auto;padding:0 18px}h1{margin:0 0 7px;font-size:clamp(26px,4vw,38px)}header p{margin:0;opacity:.92}
+main{padding:22px 0 50px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 5px 18px #26324b0a}
+.card h2{font-size:18px;margin:0 0 12px}.stat{font-size:26px;font-weight:700;color:var(--purple)}
+.small{font-size:13px;color:var(--muted)}.section{margin-top:18px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--muted);font-weight:600;background:#fafbfe}
+.tag{display:inline-block;border-radius:20px;padding:3px 9px;font-size:12px;font-weight:700;background:#f0efff;color:#6155c5}
+.van{background:#fff1e5;color:#b76c2d}.su{background:#eaf4ff;color:#397bb5}.dia{background:#e8f6ef;color:#31815f}
+.task{display:flex;gap:9px;align-items:flex-start}.task input{margin-top:4px;accent-color:var(--purple);width:16px;height:16px}
+textarea,input[type=text]{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;font:inherit;color:var(--ink);background:white}
+textarea{min-height:88px;resize:vertical}.progress{height:10px;background:#eceefa;border-radius:10px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#7164d8,#55b49a);transition:width .2s}
+button{border:0;border-radius:10px;background:var(--purple);color:white;padding:10px 14px;font-weight:700;cursor:pointer}button.secondary{background:#eef0f8;color:var(--ink)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}table{font-size:12px}th,td{padding:9px 6px}}
+@media print{body{background:white}.card{box-shadow:none;break-inside:avoid}button{display:none}header{background:#6258c9!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>📚 Kế hoạch học tập của tôi</h1>
+<p>Lộ trình học tập lớp 12 • Tổ hợp C00: Ngữ văn – Lịch sử – Địa lí</p>
+</div></header>
+<main class="wrap">
+<div class="grid">
+  <section class="card"><div class="small">Mục tiêu chính</div><div class="stat">Học đều mỗi ngày</div><div class="small">Ưu tiên hiểu bài, ghi nhớ và luyện đề từng bước.</div></section>
+  <section class="card"><div class="small">Thời lượng gợi ý</div><div class="stat">2–3 giờ/ngày</div><div class="small">Có nghỉ ngắn giữa các phiên học; điều chỉnh theo lịch ở trường.</div></section>
+  <section class="card"><div class="small">Tiến độ tuần này</div><div class="stat" id="percent">0%</div><div class="progress"><div class="bar" id="bar"></div></div><div class="small" id="count">0 / 0 nhiệm vụ hoàn thành</div></section>
+</div>
+
+<section class="card section">
+<h2>🎯 Mục tiêu trong tuần</h2>
+<div class="task"><input type="checkbox" class="check"><label>Ôn và tự kiểm tra kiến thức trọng tâm môn Ngữ văn.</label></div>
+<div class="task"><input type="checkbox" class="check"><label>Học bài Lịch sử bằng mốc thời gian, sự kiện và từ khóa.</label></div>
+<div class="task"><input type="checkbox" class="check"><label>Học Địa lí theo sơ đồ tư duy, Atlat và câu hỏi ngắn.</label></div>
+<div class="task"><input type="checkbox" class="check"><label>Làm ít nhất một phần bài tập hoặc đề luyện tập C00.</label></div>
+<div class="task"><input type="checkbox" class="check"><label>Cuối tuần xem lại lỗi sai và điều chỉnh kế hoạch.</label></div>
+</section>
+
+<section class="card section">
+<h2>🗓️ Thời khóa biểu mẫu</h2>
+<table>
+<thead><tr><th>Ngày</th><th>Phiên học 1</th><th>Phiên học 2</th><th>Ôn nhanh</th></tr></thead>
+<tbody>
+<tr><td><b>Thứ 2</b></td><td><span class="tag van">Ngữ văn</span><br>Đọc hiểu / tác phẩm</td><td><span class="tag dia">Địa lí</span><br>Học kiến thức mới</td><td>15 phút từ khóa</td></tr>
+<tr><td><b>Thứ 3</b></td><td><span class="tag su">Lịch sử</span><br>Sự kiện – mốc thời gian</td><td><span class="tag van">Ngữ văn</span><br>Lập dàn ý</td><td>Ôn bài cũ</td></tr>
+<tr><td><b>Thứ 4</b></td><td><span class="tag dia">Địa lí</span><br>Atlat / biểu đồ</td><td><span class="tag su">Lịch sử</span><br>Câu hỏi vận dụng</td><td>Tự kiểm tra</td></tr>
+<tr><td><b>Thứ 5</b></td><td><span class="tag van">Ngữ văn</span><br>Viết đoạn / nghị luận</td><td><span class="tag dia">Địa lí</span><br>Sơ đồ tư duy</td><td>Ôn từ khóa</td></tr>
+<tr><td><b>Thứ 6</b></td><td><span class="tag su">Lịch sử</span><br>Hệ thống hóa bài</td><td><span class="tag van">Ngữ văn</span><br>Luyện đề ngắn</td><td>Ghi lỗi sai</td></tr>
+<tr><td><b>Thứ 7</b></td><td><span class="tag dia">Địa lí</span><br>Luyện câu hỏi</td><td><span class="tag su">Lịch sử</span><br>Luyện đề ngắn</td><td>Ôn phần yếu</td></tr>
+<tr><td><b>Chủ nhật</b></td><td colspan="2">Tổng ôn 3 môn, làm bài kiểm tra ngắn</td><td>Nghỉ ngơi, chuẩn bị tuần mới</td></tr>
+</tbody></table>
+<p class="small">Gợi ý: mỗi phiên 40–50 phút, nghỉ 5–10 phút. Hãy đổi khung giờ cho phù hợp với lịch học và sinh hoạt của bạn.</p>
+</section>
+
+<section class="card section">
+<h2>✅ Danh sách việc cần làm mỗi ngày</h2>
+<div class="grid" style="grid-template-columns:repeat(2,1fr)">
+<div>
+<div class="task"><input type="checkbox" class="check"><label>Ôn lại bài đã học hôm qua.</label></div>
+<div class="task"><input type="checkbox" class="check"><label>Học một phần kiến thức mới.</label></div>
+<div class="task"><input type="checkbox" class="check"><label>Tự nhắc lại bài mà không nhìn tài liệu.</label></div>
+</div><div>
+<div class="task"><input type="checkbox" class="check"><label>Làm bài tập / câu hỏi vận dụng.</label></div>
+<div class="task"><input type="checkbox" class="check"><label>Ghi lại nội dung chưa hiểu hoặc hay sai.</label></div>
+<div class="task"><input type="checkbox" class="check"><label>Chuẩn bị sách vở cho ngày mai.</label></div>
+</div></div>
+</section>
+
+<section class="card section">
+<h2>📝 Ghi chú và tự đánh giá</h2>
+<label class="small" for="notes">Hôm nay mình đã học được gì? Phần nào cần ôn lại?</label>
+<textarea id="notes" placeholder="Ví dụ: Địa lí – đã nhớ được 3 ý chính, cần ôn lại phần..."></textarea>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+<button onclick="savePlan()">Lưu tiến độ</button>
+<button class="secondary" onclick="window.print()">In kế hoạch / lưu PDF</button>
+<button class="secondary" onclick="resetPlan()">Đặt lại ô đánh dấu</button>
+</div>
+<p class="small" id="saved" aria-live="polite">Tiến độ được lưu trên trình duyệt của thiết bị này khi bạn bấm “Lưu tiến độ”.</p>
+</section>
+</main>
+<footer>Chậm một chút cũng được — quan trọng là bạn vẫn đang tiến về phía trước. 🌱</footer>
+<script>
+const checks=[...document.querySelectorAll('.check')];
+function update(){const done=checks.filter(x=>x.checked).length;const pct=checks.length?Math.round(done/checks.length*100):0;document.getElementById('percent').textContent=pct+'%';document.getElementById('bar').style.width=pct+'%';document.getElementById('count').textContent=`${done} / ${checks.length} nhiệm vụ hoàn thành`;}
+function savePlan(){localStorage.setItem('studyChecks',JSON.stringify(checks.map(x=>x.checked)));localStorage.setItem('studyNotes',document.getElementById('notes').value);document.getElementById('saved').textContent='Đã lưu tiến độ trên trình duyệt này.';update();}
+function resetPlan(){checks.forEach(x=>x.checked=false);document.getElementById('notes').value='';localStorage.removeItem('studyChecks');localStorage.removeItem('studyNotes');document.getElementById('saved').textContent='Đã đặt lại kế hoạch.';update();}
+try{const saved=JSON.parse(localStorage.getItem('studyChecks')||'null');if(saved)checks.forEach((x,i)=>x.checked=!!saved[i]);document.getElementById('notes').value=localStorage.getItem('studyNotes')||'';}catch(e){}
+checks.forEach(x=>x.addEventListener('change',update));update();
+</script>
+</body></html>
